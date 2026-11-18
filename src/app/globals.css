@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-cream: #FAF7F2;
+    --color-beige: #EBDCCB;
+    --color-chocolate: #654632;
+    --color-soft-brown: #B7835C;
+    --color-dark-brown: #49372C;
+    --color-white: #FFFFFF;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #FAF7F2;
+    color: #49372C;
+  }
+
+  body {
+    @apply bg-brand-cream text-brand-darkBrown font-sans antialiased selection:bg-brand-beige selection:text-brand-darkBrown;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    @apply font-serif tracking-tight text-brand-darkBrown;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand-chocolate px-6 py-3.5 text-sm font-medium text-brand-white shadow-soft transition-all duration-300 hover:bg-brand-darkBrown hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand-beige px-6 py-3.5 text-sm font-medium text-brand-darkBrown transition-all duration-300 hover:bg-brand-softBrown hover:text-brand-white active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-brand-chocolate/30 bg-transparent px-6 py-3.5 text-sm font-medium text-brand-chocolate transition-all duration-300 hover:border-brand-chocolate hover:bg-brand-chocolate hover:text-brand-white disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-brand-beige bg-brand-white px-4 py-3 text-sm text-brand-darkBrown placeholder:text-brand-darkBrown/45 focus:border-brand-chocolate focus:outline-none focus:ring-2 focus:ring-brand-chocolate/15 transition-all;
+  }
+
+  .card-surface {
+    @apply rounded-2xl bg-brand-white border border-brand-beige/60 shadow-soft transition-all duration-300;
+  }
+}
