@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ShoppingBag, Menu, X, UtensilsCrossed } from "lucide-react";
+import { ShoppingBag, Menu, X, UtensilsCrossed, UserCheck } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { cn } from "@/lib/utils";
 
@@ -68,8 +68,17 @@ export function Navbar({ storeName }: { storeName?: string }) {
           })}
         </nav>
 
-        {/* Actions: Cart & Mobile Toggle */}
-        <div className="flex items-center gap-3">
+        {/* Actions: Cart, Admin Login & Mobile Toggle */}
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <Link
+            href="/admin/login"
+            className="hidden sm:inline-flex items-center gap-2 rounded-xl border border-brand-beige bg-transparent px-3.5 py-2.5 text-sm font-medium text-brand-darkBrown transition-all duration-200 hover:border-brand-chocolate hover:bg-brand-beige/40"
+            aria-label="Login Admin"
+          >
+            <UserCheck className="h-4 w-4 text-brand-chocolate" />
+            <span>Login Admin</span>
+          </Link>
+
           <Link
             href="/cart"
             className="relative inline-flex items-center gap-2.5 rounded-xl border border-brand-beige bg-brand-white px-4 py-2.5 text-sm font-medium text-brand-darkBrown shadow-soft transition-all duration-200 hover:border-brand-chocolate hover:bg-brand-beige/40"
@@ -127,11 +136,12 @@ export function Navbar({ storeName }: { storeName?: string }) {
             })}
             <div className="mt-2 pt-2 border-t border-brand-beige/60 flex items-center justify-between px-2">
               <Link
-                href="/admin"
+                href="/admin/login"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-xs font-medium text-brand-softBrown hover:text-brand-chocolate"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-chocolate hover:text-brand-darkBrown"
               >
-                Panel Admin
+                <UserCheck className="h-3.5 w-3.5" />
+                <span>Login Admin</span>
               </Link>
               <Link
                 href="/menu"
